@@ -1,7 +1,6 @@
 package go_translit
 
 import (
-	"fmt"
 	"strings"
 	"unicode"
 	"unicode/utf8"
@@ -255,14 +254,11 @@ func DecodeWord(word string) string {
 
 func encodeWord(word string) string {
 	if isNumerical(word) {
-		fmt.Println("here 3")
 		return word
 	}
 	if isEnglishOrNumericalOrSpecial(word) {
-		fmt.Println("here 2")
 		return noEncPrefixStr + word
 	}
-	fmt.Println("here 3")
 	return fn.Compose2(byteSliceToStr, encodeToAscii)(word)
 }
 
@@ -291,7 +287,6 @@ func isNumerical(word string) bool {
 			return false
 		}
 	}
-	fmt.Println("here")
 	return true
 }
 
